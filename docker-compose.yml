@@ -1,5 +1,6 @@
 services:
   postgres:
+    container_name: postgres
     image: postgres:17.5
     environment:
       POSTGRES_USER: postgres
@@ -11,12 +12,13 @@ services:
     networks:
       - local-network
   pgadmin:
+    container_name: pgAdmin
     image: dpage/pgadmin4:9.5
     depends_on:
       - postgres
     environment:
       PGADMIN_DEFAULT_EMAIL: dba@pdelivery.com
-      PGADMIN_DEFAULT_PASSWORD: ddelivery
+      PGADMIN_DEFAULT_PASSWORD: pdelivery
     ports:
       - 8083:80
     volumes:
